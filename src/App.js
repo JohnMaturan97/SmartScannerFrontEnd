@@ -12,7 +12,7 @@ import './App.css';
 
 //You must add your own API key here from Clarifai.
 const app = new Clarifai.App({
- apiKey: 'YOUR API KEY HERE'
+ apiKey: 'f1c3cf9749ed41e7ab90a7f805f66255'
 });
 
 const particlesOptions = {
@@ -24,6 +24,21 @@ const particlesOptions = {
         value_area: 800
       }
     }
+  }
+}
+
+const initiaState = {
+  input: '',
+  imageUrl: '',
+  box: {},
+  route: 'signin',
+  isSignedIn: 'false',
+  user: {
+    id: '',
+    name: '',
+    email: '',
+    entries: '',
+    joined: '',
   }
 }
 
@@ -106,6 +121,7 @@ class App extends Component {
             .then(count => {
               this.setState(Object.assign(this.state.user, { entries: count}))
             })
+            
 
         }
         this.displayFaceBox(this.calculateFaceLocation(response))
